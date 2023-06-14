@@ -1,20 +1,13 @@
 {
   "name": "myresume",
   "version": "1.0.0",
-  "description": "Ahmed Fathy resume",
-  "main": "index.html",
+  "description": "",
+  "main": "main.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "job",
-    "vacancy",
-    "resume",
-    "cv",
-    "software",
-    "developer"
-  ],
-  "author": "Ahmed Fathy",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.3",
