@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ahmed Fathy Resume</title>
+    <!-- SEO Meta Tags-->
+    <meta name="description" content="Ahmed Fathy resume">
+    <meta name="keywords" content="resume, cv, frontend developer">
+    <meta name="author" content="Ahmed Fathy">
+    <!-- Viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon and Touch Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+
+    <!-- Page loading styles-->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #666276;;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #bbb7c5;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      
+    </style>
+
+    <!-- Page loading scripts-->
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+
+    </script>
+
+    <!-- Node Modules Styles-->
+    <link rel="stylesheet" media="screen" href="node_modules/simplebar/dist/simplebar.min.css"/>
+    <!-- Main Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="/styles.css">
+  </head>
+  <!-- Body-->
+  <body>
+    <!-- Page loading spinner-->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+    <!-- Page Wrapper -->
+    <main class="page-wrapper">
+      <!-- Send Message Modal-->
+      <div class="modal fade" id="modal-message" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header d-block position-relative border-0 pb-0 px-sm-5 px-4">
+              <h3 class="modal-title mt-4 text-center">Leave a message</h3>
+              <button class="btn-close position-absolute top-0 end-0 mt-3 me-3" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-sm-5 px-4">
+              <form class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label class="form-label" for="message-name">Name <span class='text-danger'>*</span></label>
+                  <input class="form-control" type="text" id="message-name" placeholder="Your name" required>
+                  <div class="invalid-feedback">Please let us know your name.</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="message-phone">Phone <span class='text-danger'>*</span></label>
+                  <input class="form-control" type="text" id="message-phone" placeholder="Your phone" required>
+                  <div class="invalid-feedback">Please let us know your phone.</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="message-email">Email <span class='text-danger'>*</span></label>
+                  <input class="form-control" type="email" id="message-email" placeholder="Your email address" required>
+                  <div class="invalid-feedback">Please provide a valid email address.</div>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="message-text">Message <span class='text-danger'>*</span></label>
+                  <textarea class="form-control" id="message-text" rows="5" placeholder="Your message" required></textarea>
+                  <div class="invalid-feedback">Please write your message.</div>
+                </div>
+                <button class="btn btn-primary d-block w-100 mb-4" type="submit">Send message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navbar-->
+      <header class="navbar navbar-expand-lg navbar-dark fixed-top" data-scroll-header>
+        <div class="container">
+          <a class="navbar-brand me-0 me-xl-4" href="#">
+            <img class="d-block" src="img/logo/AF-logo-orange.png" width="35" alt="Logo">
+          </a>
+          <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <a class="btn btn-primary btn-sm rounded-pill ms-2 order-lg-3" href="#">
+            <i class="fi-download-file pt-1 me-2"></i>Download CV
+          </a>
+          <!-- Collapse Menu -->
+          <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
+            <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
+              <!-- Menu items-->
+              <li class="nav-item"><a class="nav-link" href="/index.html" role="button">Overview</a></li>
+              <li class="nav-item"><a class="nav-link" href="/experience.html" role="button">Experience</a></li>
+              <li class="nav-item"><a class="nav-link" href="/projects.html" role="button">Projects</a></li>
+              <li class="nav-item"><a class="nav-link active" href="/skills.html" role="button">Skills</a></li>
+              <li class="nav-item"><a class="nav-link" href="/education.html" role="button">Education</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="bg-dark pt-5">
+        <div class="container py-5">
+          <div class="container content-overlay text-center py-md-3 py-lg-5">
+            <h1 class="display-5 text-light mt-sm-5 my-3">Ahmed Fathy</h1>
+            <p class="fs-lg text-white">I <span class="text-primary">design</span> and <span class="text-primary">develop</span> beautiful simple websites, and I love what I do.</p>
+            <div class="row justify-content-center mb-5 pb-lg-3">
+              <div class="col-lg-4 col-md-5 col-sm-7">
+                <a class="btn btn-primary btn-lg rounded-pill w-100 mt-2" href="#overview" data-scroll>
+                  <i class="fi-zoom-in pt-1 me-2"></i>Explore resume
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page content-->
+      <section class="position-relative bg-white rounded-xxl-4 zindex-5" style="margin-top: -30px;">
+        <div class="container pt-4 pb-5 mb-md-4">
+          <div class="row">
+            <!-- Sticky sidebar-->
+            <aside class="col-lg-4 col-md-5 mb-4 mb-md-0" style="margin-top: -6rem;">
+              <div class="sticky-top" style="padding-top: 6rem;">
+                <!-- Side Nav -->
+                <div class="card card-body border-0 shadow-sm p-lg-3 mb-3 mb-lg-0">
+                  <div class="d-flex align-items-start justify-content-between">
+                    <a class="text-decoration-none" href="#">
+                      <img class="rounded-3 mb-3" src="img/avatars/50.jpeg" width="80" alt="Avatar">
+                    </a>
+                    <div class="ms-4 flex-shrink-0">
+                      <div class="dropdown d-inline-block" data-bs-toggle="tooltip" title="Share">
+                        <button class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle ms-2 mb-2" type="button" data-bs-toggle="dropdown"><i class="fi-share"></i></button>
+                        <div class="dropdown-menu dropdown-menu-end my-1">
+                          <button class="dropdown-item" type="button"><i class="fi-linkedin fs-base opacity-75 me-2"></i>LinkedIn</button>
+                          <button class="dropdown-item" type="button"><i class="fi-whatsapp fs-base opacity-75 me-2"></i>Whatsapp</button>
+                          <button class="dropdown-item" type="button"><i class="fi-discord fs-base opacity-75 me-2"></i>Discord</button>
+                          <button class="dropdown-item" type="button"><i class="fi-telegram fs-base opacity-75 me-2"></i>Telegram</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h2 class="h4 mb-1">Ahmed Fathy</h2>
+                  <p class="text-body">Senior Frontend Developer</p>
+                  <div class="mb-2">
+                    <ul class="list-unstyled fs-sm">
+                      <li><a class="nav-link fw-normal p-0" href="tel:01111129280"><i class="fi-phone opacity-60 me-2"></i>+201111129280</a></li>
+                      <li><a class="nav-link fw-normal p-0" href="mailto:a.fat7y85@gmail.com"><i class="fi-mail opacity-60 me-2"></i>a.fat7y85@gmail.com</a></li>
+                    </ul>
+                  </div>
+                  <!-- Send Message Button -->
+                  <a class="btn btn-primary rounded-pill w-100 mb-3" href="#modal-message" data-bs-toggle="modal">
+                    <i class="fi-chat-left pt-1 me-2"></i>Say Hello
+                  </a>
+                  <!-- Menu Button -->
+                  <a class="btn btn-outline-primary rounded-pill d-block d-md-none w-100 mb-3" href="#side-nav" data-bs-toggle="collapse">
+                    <i class="fi-align-justify me-2"></i>Menu
+                  </a>
+                  <!-- Menu -->
+                  <div class="collapse d-md-block mt-3" id="side-nav">
+                    <div class="card-nav">
+                      <a class="card-nav-link" href="/index.html">
+                        <i class="fi-home opacity-60 me-2"></i>Overview
+                      </a>
+                      <a class="card-nav-link" href="/experience.html">
+                        <i class="fi-briefcase opacity-60 me-2"></i>Experience
+                      </a>
+                      <a class="card-nav-link" href="/projects.html">
+                        <i class="fi-settings opacity-60 me-2"></i>Projects
+                      </a>
+                      <a class="card-nav-link active" href="/skills.html">
+                        <i class="fi-star opacity-60 me-2"></i>Skills
+                      </a>
+                      <a class="card-nav-link" href="/education.html">
+                        <i class="fi-education opacity-60 me-2"></i>Education
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            <!-- Resume Col -->
+            <div class="col-lg-8 col-md-7 position-relative mb-4 mb-md-0" style="z-index: 1025;" data-bs-spy="scroll" data-bs-target="#side-nav" data-bs-root-margin="0px 0px -30%" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+
+              <!-- Skills -->
+              <section class="mb-4 pb-md-3" id="skills">
+                <h1 class="h3 mb-0">Skills</h1>
+                <!-- Breadcrumb-->
+                <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">My Skills</li>
+                  </ol>
+                </nav>
+                <p class="pb-3 border-bottom mb-4">My skills are divided between frontend, backend, tooling, language and personal skills.</p>
+
+                <div class="accordion mb-4" id="features">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFrontEnd">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#frontEnd" aria-expanded="true" aria-controls="frontEnd">Frontend Skills</button>
+                    </h2>
+                    <div class="accordion-collapse collapse show" id="frontEnd" aria-labelledby="headingFrontEnd" data-bs-parent="#features">
+                      <div class="accordion-body fs-sm opacity-70">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>HTML &amp; CSS</li>
+                              <li>Sass &amp; Less</li>
+                              <li>Vanilla JS, ES6</li>
+                              <li>TypeScript</li>
+                              <li>JSON, JQuery &amp; Ajax</li>
+                              <li>ReactJS &amp; NextJS</li>
+                              <li>VueJS &amp; NuxtJS</li>
+                              <li>Bootstrap &amp; ReactBootstrap</li>
+                              <li>Material UI, Tailwind CSS &amp; Semantic UI</li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>Git &amp; GitHub</li>
+                              <li>NPM &amp; Yarn</li>
+                              <li>Redux &amp; Flux</li>
+                              <li>Jest &amp; Enzyme</li>
+                              <li>Postman &amp; Axios</li>
+                              <li>Webpack, Babel &amp; Gulp</li>
+                              <li>ReCharts, AMCharts &amp; JSCharts</li>
+                              <li>Next auth, OAuth &amp; Firebase auth</li>
+                              <li>Formik, React Hook Form &amp; React Form</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingInterior">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#interior" aria-expanded="false" aria-controls="interior">Backend Skills</button>
+                    </h2>
+                    <div class="accordion-collapse collapse" id="interior" aria-labelledby="headingInterior" data-bs-parent="#features">
+                      <div class="accordion-body fs-sm opacity-70">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>Python, Django &amp; Flask</li>
+                              <li>Django Rest Framework</li>
+                              <li>NodeJS &amp; Express</li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>PostgreSQL, Mongo DB &amp; MySQL</li>
+                              <li>Google Cloud, GitLab, AWS, &amp; Digital Ocean</li>
+                              <li>Vercel, Netlify, Heroku, Siteground &amp; Hostinger</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSafety">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#safety" aria-expanded="false" aria-controls="safety">Tooling Skills</button>
+                    </h2>
+                    <div class="accordion-collapse collapse" id="safety" aria-labelledby="headingSafety" data-bs-parent="#features">
+                      <div class="accordion-body fs-sm opacity-70">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>Graphics &amp; Web Design Tools</li>
+                              <li>Wireframing &amp; Proto-typing Tools </li>
+                              <li>Site mapping &amp; User Flow Tools</li>
+                              <li>Typography &amp; Iconography Tools</li>
+                              <li>Imagery &amp; Video Editing Tools</li>
+                              <li>Development IDEs &amp; Extensions</li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>Debugging &amp; Testing Tools</li>
+                              <li>Deployment &amp; Hosting Tools</li>
+                              <li>SEO &amp; Digital Marketing Tools</li>
+                              <li>Agile &amp; Remote Management Tools</li>
+                              <li>Version Controlling &amp; CI/CD Tools</li>
+                              <li>Performance &amp; Load Balancing Tools</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTechnology">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#technology" aria-expanded="false" aria-controls="technology">Language Skills</button>
+                    </h2>
+                    <div class="accordion-collapse collapse" id="technology" aria-labelledby="headingTechnology" data-bs-parent="#features">
+                      <div class="accordion-body fs-sm opacity-70">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>Arabic - Native</li>
+                              <li>English - Fluent</li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-6">
+                            <ul>
+                              <li>French - Good</li>
+                              <li>German - Weak</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingExterior">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#exterior" aria-expanded="false" aria-controls="exterior">Personal Skills</button>
+                    </h2>
+                    <div class="accordion-collapse collapse" id="exterior" aria-labelledby="headingExterior" data-bs-parent="#features">
+                      <div class="accordion-body fs-sm opacity-70">
+                        <ul>
+                          <li>Strong communication, presentation and negotiation skills.</li>
+                          <li>Excellent entrepreneurial and human centered design skills.</li>
+                          <li>Passionate about technology and eager to learn new skills and talents.</li>
+                          <li>Multitasking person with strong planning, organizing and time management skills.</li>
+                          <li>Self-starter who can work independently and team player to constantly deliver all needed targets. </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer-->
+    <footer class="position-relative pb-5" style="padding-top: 3rem;">
+      <div class="d-none d-xxl-block position-absolute top-0 start-0 w-100 h-100 bg-dark" style="border-top-left-radius: 1.875rem; border-top-right-radius: 1.875rem;"></div>
+      <div class="d-xxl-none position-absolute top-0 start-0 w-100 h-100 bg-dark"></div>
+      <div class="container content-overlay text-center py-md-3 py-lg-5">
+        <div class="d-flex justify-content-center pb-4">
+          <a class="btn btn-icon btn-translucent-light btn-sm rounded-circle mb-2 me-2" href="#"><i class="fi-linkedin"></i></a>
+          <a class="btn btn-icon btn-translucent-light btn-sm rounded-circle mb-2 me-2" href="#"><i class="fi-facebook"></i></a>
+          <a class="btn btn-icon btn-translucent-light btn-sm rounded-circle mb-2 me-2" href="#"><i class="fi-twitter"></i></a>
+          <a class="btn btn-icon btn-translucent-light btn-sm rounded-circle mb-2 me-2" href="#"><i class="fi-telegram"></i></a>
+          <a class="btn btn-icon btn-translucent-light btn-sm rounded-circle mb-2" href="#"><i class="fi-messenger"></i></a>
+        </div>
+        <h2 class="h4 text-light pb-3">Still not convinced? Get full portfolio!</h2>
+        <div class="row justify-content-center mb-5 pb-lg-3">
+          <div class="col-lg-6 col-md-7 col-sm-9">
+            <form class="subscription-form validate" action="#" method="post" name="subscribe-form" target="_blank" novalidate>
+              <div class="form-group form-group-light rounded-pill">
+                <div class="input-group flex-nowrap"><span class="input-group-text text-muted"><i class="fi-mail"></i></span>
+                  <input class="form-control" type="email" name="EMAIL" placeholder="Your email" required>
+                </div>
+                <button class="btn btn-primary rounded-pill" type="submit" name="subscribe">Drop email</button>
+              </div>
+              <div class="subscription-status mx-auto"></div>
+              <div class="form-text text-light fs-xs opacity-70 mt-3">Drop your email to receive a portfolio with all my projects and updates.</div>
+            </form>
+          </div>
+        </div>
+        <p class="fs-sm mb-0"><span class="text-light">&copy; All rights reserved. Made by </span><a href="#" target="_blank" rel="noopener">Ahmed Fathy</a></p>
+      </div>
+    </footer>
+    <!-- Back to top button-->
+    <a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
+
+    <!-- Vendor scrits: js libraries and plugins-->
+    <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="node_modules/simplebar/dist/simplebar.min.js"></script>
+    <script type="module" src="node_modules/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <!-- Main theme script-->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

@@ -1,16 +1,21 @@
 {
-  "name": "af-resume",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "myresume",
+  "version": "1.0.0",
+  "description": "Ahmed Fathy resume",
+  "main": "index.html",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "test": "test"
   },
-  "devDependencies": {
-    "vite": "^4.3.9"
-  },
+  "keywords": [
+    "job",
+    "vacancy",
+    "resume",
+    "cv",
+    "software",
+    "developer"
+  ],
+  "author": "Ahmed Fathy",
+  "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.2.3",
     "cleave.js": "^1.6.0",
