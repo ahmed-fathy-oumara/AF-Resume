@@ -3,86 +3,6 @@
   'use strict';
 
   /**
-   * Input fields formatter
-   * @requires https://github.com/nosir/cleave.js
-  */
-
-  var inputFormatter = function () {
-    var input = document.querySelectorAll('[data-format]');
-    if (input.length === 0) return;
-    for (var i = 0; i < input.length; i++) {
-      var inputFormat = input[i].dataset.format,
-        blocks = input[i].dataset.blocks,
-        delimiter = input[i].dataset.delimiter;
-      blocks = blocks !== undefined ? blocks.split(' ').map(Number) : '';
-      delimiter = delimiter !== undefined ? delimiter : ' ';
-      switch (inputFormat) {
-        case 'card':
-          var card = new Cleave(input[i], {
-            creditCard: true
-          });
-          break;
-        case 'cvc':
-          var cvc = new Cleave(input[i], {
-            numeral: true,
-            numeralIntegerScale: 3
-          });
-          break;
-        case 'date':
-          var date = new Cleave(input[i], {
-            date: true,
-            datePattern: ['m', 'y']
-          });
-          break;
-        case 'date-long':
-          var dateLong = new Cleave(input[i], {
-            date: true,
-            delimiter: '-',
-            datePattern: ['Y', 'm', 'd']
-          });
-          break;
-        case 'time':
-          var time = new Cleave(input[i], {
-            time: true,
-            datePattern: ['h', 'm']
-          });
-          break;
-        case 'custom':
-          var custom = new Cleave(input[i], {
-            delimiter: delimiter,
-            blocks: blocks
-          });
-          break;
-        default:
-          console.error('Sorry, your format ' + inputFormat + ' is not available. You can add it to the theme object method - inputFormatter in src/js/theme.js or choose one from the list of available formats: card, cvc, date, date-long, time or custom.');
-      }
-    }
-  }();
-
-  /**
-   * Form validation
-  */
-
-  var formValidation = function () {
-    var selector = 'needs-validation';
-    window.addEventListener('load', function () {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName(selector);
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener('submit', function (e) {
-          if (form.checkValidity() === false) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  }();
-
-
-  /**
    * Lazy Loading Images
   */
 
@@ -187,6 +107,85 @@
         trigger: 'hover'
       });
     });
+  }();
+
+  /**
+   * Input fields formatter
+   * @requires https://github.com/nosir/cleave.js
+  */
+
+  var inputFormatter = function () {
+    var input = document.querySelectorAll('[data-format]');
+    if (input.length === 0) return;
+    for (var i = 0; i < input.length; i++) {
+      var inputFormat = input[i].dataset.format,
+        blocks = input[i].dataset.blocks,
+        delimiter = input[i].dataset.delimiter;
+      blocks = blocks !== undefined ? blocks.split(' ').map(Number) : '';
+      delimiter = delimiter !== undefined ? delimiter : ' ';
+      switch (inputFormat) {
+        case 'card':
+          var card = new Cleave(input[i], {
+            creditCard: true
+          });
+          break;
+        case 'cvc':
+          var cvc = new Cleave(input[i], {
+            numeral: true,
+            numeralIntegerScale: 3
+          });
+          break;
+        case 'date':
+          var date = new Cleave(input[i], {
+            date: true,
+            datePattern: ['m', 'y']
+          });
+          break;
+        case 'date-long':
+          var dateLong = new Cleave(input[i], {
+            date: true,
+            delimiter: '-',
+            datePattern: ['Y', 'm', 'd']
+          });
+          break;
+        case 'time':
+          var time = new Cleave(input[i], {
+            time: true,
+            datePattern: ['h', 'm']
+          });
+          break;
+        case 'custom':
+          var custom = new Cleave(input[i], {
+            delimiter: delimiter,
+            blocks: blocks
+          });
+          break;
+        default:
+          console.error('Sorry, your format ' + inputFormat + ' is not available. You can add it to the theme object method - inputFormatter in src/js/theme.js or choose one from the list of available formats: card, cvc, date, date-long, time or custom.');
+      }
+    }
+  }();
+
+  /**
+   * Form validation
+  */
+
+  var formValidation = function () {
+    var selector = 'needs-validation';
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName(selector);
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (e) {
+          if (form.checkValidity() === false) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
   }();
 
 })();
