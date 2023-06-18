@@ -14,89 +14,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-    <!-- Page loading styles-->
-    <style>
-      .page-loading {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        -webkit-transition: all .4s .2s ease-in-out;
-        transition: all .4s .2s ease-in-out;
-        background-color: #fff;
-        opacity: 0;
-        visibility: hidden;
-        z-index: 9999;
-      }
-      .page-loading.active {
-        opacity: 1;
-        visibility: visible;
-      }
-      .page-loading-inner {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        text-align: center;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-        -webkit-transition: opacity .2s ease-in-out;
-        transition: opacity .2s ease-in-out;
-        opacity: 0;
-      }
-      .page-loading.active > .page-loading-inner {
-        opacity: 1;
-      }
-      .page-loading-inner > span {
-        display: block;
-        font-size: 1rem;
-        font-weight: normal;
-        color: #666276;;
-      }
-      .page-spinner {
-        display: inline-block;
-        width: 2.75rem;
-        height: 2.75rem;
-        margin-bottom: .75rem;
-        vertical-align: text-bottom;
-        border: .15em solid #bbb7c5;
-        border-right-color: transparent;
-        border-radius: 50%;
-        -webkit-animation: spinner .75s linear infinite;
-        animation: spinner .75s linear infinite;
-      }
-      @-webkit-keyframes spinner {
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes spinner {
-        100% {
-          -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
-        }
-      }
-      
-    </style>
-
-    <!-- Page loading scripts-->
-    <script>
-      (function () {
-        window.onload = function () {
-          var preloader = document.querySelector('.page-loading');
-          preloader.classList.remove('active');
-          setTimeout(function () {
-            preloader.remove();
-          }, 2000);
-        };
-      })();
-
-    </script>
-
     <!-- Node Modules Styles-->
     <link rel="stylesheet" media="screen" href="node_modules/simplebar/dist/simplebar.min.css"/>
     <!-- Main Styles + Bootstrap-->
@@ -104,12 +21,6 @@
   </head>
   <!-- Body-->
   <body>
-    <!-- Page loading spinner-->
-    <div class="page-loading active">
-      <div class="page-loading-inner">
-        <div class="page-spinner"></div><span>Loading...</span>
-      </div>
-    </div>
     <!-- Page Wrapper -->
     <main class="page-wrapper">
       <!-- Send Message Modal-->
@@ -258,7 +169,7 @@
             <!-- Resume Col -->
             <div class="col-lg-8 col-md-7 position-relative mb-4 mb-md-0">
 
-              <!-- Projects Section (Carousel)-->
+              <!-- Projects Section -->
               <section class="mb-4 pb-md-3" id="projects">
                 <h1 class="h3 mb-0">Projects</h1>
                 <!-- Breadcrumb-->
@@ -270,8 +181,7 @@
                 </nav>
                 <p class="pb-3 border-bottom mb-4">My projects are divided between e-commerce, social-media, listings and booking.</p>
 
-
-                <!-- Projects Carousel -->
+                <!-- Projects container -->
                 <div class="row g-4 py-2">
 
                   <!-- Project 1 -->
@@ -289,7 +199,8 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-1.jpeg" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-1-small.jpeg" data-src="img/projects/p-1.jpeg" alt="Project1" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -329,7 +240,9 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-2.jpeg" alt="Image">
+
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-2-small.jpeg" data-src="img/projects/p-2.jpeg" alt="Project2" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -369,7 +282,8 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-3.jpeg" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-3-small.jpeg" data-src="img/projects/p-3.jpeg" alt="Project3" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -408,7 +322,8 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-4.jpeg" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-4-small.jpeg" data-src="img/projects/p-4.jpeg" alt="Project4" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -447,7 +362,8 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-5.jpeg" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-5-small.jpeg" data-src="img/projects/p-5.jpeg" alt="Project5" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -486,7 +402,8 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-6.jpeg" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-6-small.jpeg" data-src="img/projects/p-6.jpeg" alt="Project6" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -525,7 +442,8 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-7.jpeg" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-7-small.jpeg" data-src="img/projects/p-7.jpeg" alt="Project7" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -564,7 +482,8 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-8.jpeg" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-8-small.jpeg" data-src="img/projects/p-8.jpeg" alt="Project8" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
@@ -603,13 +522,54 @@
                               <i class="fi-eye-on"></i>
                             </button>
                           </div>
-                          <img src="img/projects/p-9.png" alt="Image">
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-9-small.jpeg" data-src="img/projects/p-9.jpeg" alt="Project9" class="lazy w-100" />
                         </div>
                         <!-- Project Info -->
                         <div class="card-body position-relative pt-3 pb-2">
                           <!-- Project Title -->
                           <h3 class="h6 mb-2">
-                            <a class="nav-link stretched-link" href="#">Incline - Landing Page Set</a>
+                            <a class="nav-link stretched-link" href="#">Blogzine - Blog and Magazine Bootstrap 5</a>
+                          </h3>
+                          <!-- Project Description-->
+                          <p class="fs-sm opacity-70 pb-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
+                          </p>
+                          <!-- project Languages -->
+                          <div class="d-flex flex-wrap">
+                            <span class="badge rounded-pill bg-secondary me-2 mb-2">HTML</span>
+                            <span class="badge rounded-pill bg-secondary me-2 mb-2">CSS</span>
+                            <span class="badge rounded-pill bg-secondary me-2 mb-2">Javascript</span>
+                            <span class="badge rounded-pill bg-secondary me-2 mb-2">Bootstrap</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Project 10 -->
+                  <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="rounded-3" href="#">
+                      <div class="card mb-4">
+                        <!-- Card Image on top -->
+                        <div class="card-img-top card-img-hover" width="300">
+                          <a href="#" class="img-overlay"></a>
+                          <div class="position-absolute start-0 top-0 pt-3 ps-3">
+                            <span class="d-table badge bg-primary mb-1">New</span>
+                          </div>
+                          <div class="content-overlay end-0 top-0 pt-3 pe-3">
+                            <button type="button" class="btn btn-icon btn-light btn-xs text-primary rounded-circle" data-bs-toggle="tooltip" data-bs-placement="left" title="View project">
+                              <i class="fi-eye-on"></i>
+                            </button>
+                          </div>
+                          <!-- Lazy Loaded Project Img -->
+                          <img src="img/projects/p-10-small.jpeg" data-src="img/projects/p-10.jpeg" alt="Project10" class="lazy w-100" />
+                        </div>
+                        <!-- Project Info -->
+                        <div class="card-body position-relative pt-3 pb-2">
+                          <!-- Project Title -->
+                          <h3 class="h6 mb-2">
+                            <a class="nav-link stretched-link" href="#">Social Network, Community and Events platform</a>
                           </h3>
                           <!-- Project Description-->
                           <p class="fs-sm opacity-70 pb-2">
